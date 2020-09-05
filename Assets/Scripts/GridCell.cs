@@ -21,14 +21,18 @@ public class GridCell : MonoBehaviour {
 
 	private GridEntity occupant;
 
-	public GridEntity PassOccupant(GridCell sender) {
-		GridEntity prevOccupant = Occupant;
+	public GridEntity PassOccupant(GridCell receiver) {
+		GridEntity prevOccupant = receiver.Occupant;
 
-		occupant = sender.Occupant;
-		Golem = sender.Golem;
+		receiver.occupant = Occupant;
+		receiver.Golem = Golem;
 
-		sender.Occupant = null;
+		occupant = null;
 
 		return prevOccupant;
+	}
+
+	public static GridEntity PassOccupant(GridCell from, GridCell to) {
+		return from.PassOccupant(to);
 	}
 }

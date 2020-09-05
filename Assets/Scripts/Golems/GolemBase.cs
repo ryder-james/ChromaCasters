@@ -23,5 +23,12 @@ public abstract class GolemBase : MonoBehaviour {
 		entity = GetComponent<GridEntity>();
 	}
 
-	public abstract void DoTurn(GridCell[,] neighbors);
+	protected bool CheckEmpty(ref GridCell[,] neighbors, Vector3 direction) {
+		Vector2 dir = new Vector2(direction.x, -direction.z) + Vector2.one;
+		int row = (int) dir.y;
+		int col = (int) dir.x;
+		return neighbors[row, col] != null && !neighbors[row, col].IsOccupied;
+	}
+
+	public abstract void DoTurn(ref GridCell[,] neighbors);
 }

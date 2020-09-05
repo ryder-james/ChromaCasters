@@ -5351,6 +5351,7 @@ MonoBehaviour:
   golemPrefabs:
   - {fileID: 6254458524750970302, guid: a7cfc382d5c5d7e41b7bb51363ab58d8, type: 3}
   - {fileID: 6254458524750970302, guid: 30d4e7991e98bbb4ab27c57399cba57a, type: 3}
+  - {fileID: 6254458524750970302, guid: fef95240fad42e94dafe8693f9890a27, type: 3}
 --- !u!4 &1320629773
 Transform:
   m_ObjectHideFlags: 0

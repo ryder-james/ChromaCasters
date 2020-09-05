@@ -1,18 +1,34 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class GridCell : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public class GridCell : MonoBehaviour {
+	public bool IsOccupied => Occupant != null;
+	public bool HasGolem => Golem != null;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	public GridEntity Occupant {
+		get => occupant;
+		set { 
+			occupant = value;
+			if (occupant != null) {
+				GolemBase golem = occupant.GetComponent<GolemBase>();
+				if (golem != null) {
+					Golem = golem;
+				}
+			}
+		}
+	}
+
+	public GolemBase Golem { get; private set; }
+
+	private GridEntity occupant;
+
+	public GridEntity PassOccupant(GridCell sender) {
+		GridEntity prevOccupant = Occupant;
+
+		occupant = sender.Occupant;
+		Golem = sender.Golem;
+
+		sender.Occupant = null;
+
+		return prevOccupant;
+	}
 }

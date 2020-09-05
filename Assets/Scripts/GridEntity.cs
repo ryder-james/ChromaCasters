@@ -6,18 +6,6 @@ public class GridEntity : MonoBehaviour {
 
 	private bool isMoving = false;
 
-	private void Update() {
-		if (Input.GetKeyDown(KeyCode.D)) {
-			Move(Vector3.right);
-		} else if (Input.GetKeyDown(KeyCode.A)) {
-			Move(Vector3.left);
-		} else if (Input.GetKeyDown(KeyCode.W)) {
-			Move(Vector3.forward);
-		} else if (Input.GetKeyDown(KeyCode.S)) {
-			Move(Vector3.back);
-		}
-	}
-
 	public void Move(Vector3 direction) {
 		StartCoroutine(nameof(MoveAsync), direction);
 	}

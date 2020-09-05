@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
 public class StepDisabler : MonoBehaviour {
-	[SerializeField] private GolemGrid grid = null;
+	[SerializeField] private EntityGrid grid = null;
 
 	private Button button;
 

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class GolemGrid : MonoBehaviour {
+public class EntityGrid : MonoBehaviour {
 	[SerializeField] private int rows = 8;
 	[SerializeField] private int columns = 8;
 	[SerializeField] private Vector2 offset = Vector2.zero;

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public class GameHandler : MonoBehaviour {
-	[SerializeField] private GolemGrid grid = null;
+	[SerializeField] private EntityGrid grid = null;
 	[SerializeField] private GameObject[] golemPrefabs = null;
 
 	public void CreateGolem(Vector2 pos) {

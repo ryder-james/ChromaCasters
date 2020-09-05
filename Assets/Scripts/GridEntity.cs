@@ -4,7 +4,7 @@ using UnityEngine;
 public class GridEntity : MonoBehaviour {
 	[SerializeField] private float speed = 2;
 
-	public GolemGrid Grid { get; set; }
+	public EntityGrid Grid { get; set; }
 
 	private bool isMoving = false;
 

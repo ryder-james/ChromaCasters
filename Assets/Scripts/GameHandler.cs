@@ -4,10 +4,10 @@ public class GameHandler : MonoBehaviour {
 	[SerializeField] private GolemGrid grid = null;
 	[SerializeField] private GameObject[] golemPrefabs = null;
 
-	public void CreateGolem() {
+	public void CreateGolem(Vector2 pos) {
 		GameObject golem = Instantiate(golemPrefabs[Random.Range(0, golemPrefabs.Length)]);
 
-		bool added = grid.AddEntity(golem.GetComponent<GridEntity>(), Vector2.zero);
+		bool added = grid.AddEntity(golem.GetComponent<GridEntity>(), pos);
 
 		if (!added) {
 			Destroy(golem);

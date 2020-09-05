@@ -12,10 +12,8 @@ public class GolemGrid : MonoBehaviour {
 	[SerializeField] private GridCell cellPrefab = null;
 
 	private GridCell[,] grid;
-	Dictionary<GridCell, GridCell> fromTo;
 
 	private void Start() {
-		fromTo = new Dictionary<GridCell, GridCell>();
 		UpdateGrid();
 	}
 
@@ -35,13 +33,6 @@ public class GolemGrid : MonoBehaviour {
 				}
 			}
 		}
-
-		foreach (GridCell from in fromTo.Keys) {
-			GridCell to = fromTo[from];
-			from.PassOccupant(to);
-		}
-
-		fromTo.Clear();
 	}
 
 	public bool AddEntity(GridEntity entity, Vector2 position) {
@@ -64,8 +55,8 @@ public class GolemGrid : MonoBehaviour {
 	public void Move(GridEntity entity, Vector3 direction) {
 		Vector2 pos = GetPosition(entity);
 		Vector2 target = pos + new Vector2(direction.x, -direction.z);
-		fromTo.Add(grid[(int) pos.y, (int) pos.x], grid[(int) target.y, (int) target.x]);
 
+		grid[(int) pos.y, (int) pos.x].PassOccupant(grid[(int) target.y, (int) target.x]);
 		entity.Move(new Vector3(direction.x, 0, direction.z));
 	}
 

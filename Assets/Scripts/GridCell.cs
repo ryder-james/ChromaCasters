@@ -13,6 +13,8 @@ public class GridCell : MonoBehaviour {
 				if (golem != null) {
 					Golem = golem;
 				}
+			} else {
+				Golem = null;
 			}
 		}
 	}
@@ -27,7 +29,7 @@ public class GridCell : MonoBehaviour {
 		receiver.occupant = Occupant;
 		receiver.Golem = Golem;
 
-		occupant = null;
+		Occupant = null;
 
 		return prevOccupant;
 	}

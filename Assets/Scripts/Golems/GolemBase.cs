@@ -12,9 +12,6 @@ public abstract class GolemBase : MonoBehaviour {
 	[Space]
 
 	[SerializeField] private Material material = null;
-	[SerializeField] private GolemGrid grid = null;
-
-	public GolemGrid Grid { get => grid; set => grid = value; }
 
 	protected GridEntity entity;
 

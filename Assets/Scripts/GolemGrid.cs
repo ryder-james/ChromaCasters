@@ -11,6 +11,8 @@ public class GolemGrid : MonoBehaviour {
 
 	[SerializeField] private GridCell cellPrefab = null;
 
+	public int MovingEntities { get; set; } = 0;
+
 	private GridCell[,] grid;
 
 	private void Start() {
@@ -43,9 +45,7 @@ public class GolemGrid : MonoBehaviour {
 			grid[row, col].Occupant = entity;
 			entity.transform.parent = transform;
 			entity.transform.position = new Vector3(grid[row, col].transform.position.x, 0, grid[row, col].transform.position.z);
-			if (grid[row, col].HasGolem) {
-				grid[row, col].Golem.Grid = this;
-			}
+			grid[row, col].Occupant.Grid = this;
 			return true;
 		} else {
 			return false;

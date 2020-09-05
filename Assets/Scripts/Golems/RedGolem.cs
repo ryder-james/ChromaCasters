@@ -4,7 +4,7 @@ public class RedGolem : GolemBase {
 	public override void DoTurn(ref GridCell[,] neighbors) {
 		for (int step = 0; step < cellsPerMove; step++) {
 			if (step > 0) {
-				neighbors = Grid.GetNeighbors(entity);
+				neighbors = entity.Grid.GetNeighbors(entity);
 			}
 
 			int[] directionOrder = new int[] { 0, 1, 2, 3 };
@@ -20,7 +20,7 @@ public class RedGolem : GolemBase {
 				Vector3 dir = Direction.All[directionOrder[i]];
 				bool canMove = CheckEmpty(ref neighbors, dir);
 				if (canMove) {
-					Grid.Move(entity, dir);
+					entity.Grid.Move(entity, dir);
 					break;
 				}
 			}

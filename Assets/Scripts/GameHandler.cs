@@ -16,6 +16,8 @@ public class GameHandler : MonoBehaviour {
 
 		if (!added) {
 			Destroy(golem);
+		} else {
+			Step();
 		}
 	}
 

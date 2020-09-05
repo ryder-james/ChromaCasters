@@ -15,7 +15,7 @@ public abstract class GolemBase : MonoBehaviour {
 
 	protected GridEntity entity;
 
-	protected virtual void Start() {
+	protected virtual void Awake() {
 		GetComponentInChildren<Renderer>().material = material;
 		entity = GetComponent<GridEntity>();
 	}
